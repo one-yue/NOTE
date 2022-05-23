@@ -1,0 +1,64 @@
+OpenFOAM0-v2112，先这个版本吧：
+下载：
+https://dl.openfoam.com/source/v2112/OpenFOAM-v2112.tgz
+https://dl.openfoam.com/source/v2112/ThirdParty-v2112.tgz
+安装依赖：
+https://develop.openfoam.com/Development/openfoam/blob/develop/doc/Requirements.md
+
+编译：
+https://develop.openfoam.com/Development/openfoam/-/blob/master/doc/Build.md
+
+建议安装ubuntu，这样编译容易一些
+
+
+
+
+
+5.x版本的gcc库
+deb http://mirrors.aliyun.com/ubuntu/ xenial main
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+
+更换gcc版本
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100
+更换g++版本
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 100
+
+https://liquidtelecom.dl.sourceforge.net/projects/openfoam/files/latest/
+
+
+qt源：
+sudo add-apt-repository ppa:rock-core/qt4 
+sudo apt-get install qt4*
+
+
+修改.bashrc文件
+vim .bashrc
+在最后一行加入：
+source /home/oneyue/applications/opemfoam/OpenFOAM-v2112/etc/bashrc
+
+检验配置成功：
+echo $WM_PROJECT_DIR
+
+编译：
+cd home/oneyue/applications/opemfoam/OpenFOAM-v2112
+nohup ./Allwmake -j4 > opemfoam.log 2>&1 &
+
+cd /home/oneyue/applications/opemfoam/ThirdParty-v2112
+export QT_SELECT=qt4
+
+sudo apt install libqt5svg5-dev libqt5x11extras5-dev libxt-dev qt5-default qttools5-dev curl
+
+
+./makeParaView
+wmRefresh
+
+
+
+
+sudo yum update
+sudo yum install build-essential autoconf autotools-dev cmake gawk gnuplot
+sudo yum install flex libfl-dev libreadline-dev zlib1g-dev openmpi-bin libopenmpi-dev mpi-default-bin mpi-default-dev
+sudo yum install libgmp-dev libmpfr-dev libmpc-dev
+
+yum install qt5-*
+
